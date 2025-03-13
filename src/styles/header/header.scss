@@ -58,7 +58,7 @@
         transition: .4s;
 
         &:hover{
-            background-color: $opacityGreen;
+            transform: translateY(-4px);
             transition: .4s;
         }
     }

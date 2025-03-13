@@ -7,9 +7,11 @@ import notion_img from '../../img/notion-logo.png';
 import netflix_img from '../../img/netflix-logo.png';
 import zoom_img from '../../img/zoom-logo.png';
 import services_card1 from '../../img/services-card1.png';
+import cta_img from '../../img/cta-img.png';
 import '../../styles/index.scss';
 import { PartnersLogo } from './ui/PartnersLogo';
 import { ReactComponent as ArrowSvg } from '../../img/arrow.svg';
+import { ServiceCard } from './ui/ServiceCard';
 
 export const HomePage = () => {
     return (
@@ -56,21 +58,76 @@ export const HomePage = () => {
                         </div>
 
                         <div className="services__content">
-                            <div className="services__content__card">
-                                <div className="services__content__card__info">
-                                    <div className="services__content__card__info__title">
-                                        <h3 className="services__content__card__info__title__el">Search engine</h3>
-                                        <h3 className="services__content__card__info__title__el">optimization</h3>
-                                    </div>
+                            <ServiceCard />
+                            <ServiceCard />
+                            <ServiceCard />
+                            <ServiceCard />
+                            <ServiceCard />
+                            <ServiceCard />
+                        </div>
+                    </section>
 
-                                    <a href="#" className="services__content__card__info__link">
-                                        <ArrowSvg className="services__content__card__info__link__icon" />
+                    <section className="cta">
+                        <div className="cta__block">
+                            <div className="cta__block__content">
+                                <h3 className="cta__block__content__title">Let’s make things happen</h3>
+                                <p className="cta__block__content__text">
+                                    Contact us today to learn more about how our digital marketing services can help your business grow and succeed online.
+                                </p>
+                                <button className="cta__block__content__btn">Get your free proposal</button>
+                            </div>
 
-                                        <span className="services__content__card__info__link__text">Learn more</span>
-                                    </a>
-                                </div>
+                            <img src={cta_img} alt="cta img" className="cta__block__img" />
+                        </div>
+                    </section>
 
-                                <img src={services_card1} alt="img" className="services__content__card__img" />
+                    <section className="case-studies">
+                        <div className="case-studies__head">
+                            <h2 className="case-studies__head__title">Case Studies</h2>
+                            <p className="case-studies__head__description">
+                                Explore Real-Life Examples of Our Proven Digital Marketing Success through Our Case Studies
+                            </p>
+                        </div>
+
+                        <div className="case-studies__content">
+                            <div className="case-studies__content__block">
+                                <p className="case-studies__content__block__description">
+                                    For a local restaurant, we implemented a targeted PPC campaign that resulted in a 50% 
+                                    increase in website traffic and a 25% increase in sales.
+                                </p>
+
+                                <a href="/" className="case-studies__content__block__link">
+                                    Learn more
+                                    <ArrowSvg className="case-studies__content__block__link__icon" />
+                                </a>
+                            </div>
+
+                            <span className="case-studies__content__span"></span>
+
+                            <div className="case-studies__content__block">
+                                <p className="case-studies__content__block__description">
+                                    For a B2B software company, we developed an SEO strategy that resulted in a first page ranking 
+                                    for key keywords and a 200% increase in organic traffic.
+                                </p>
+
+                                <a href="/" className="case-studies__content__block__link">
+                                    Learn more
+                                    <ArrowSvg className="case-studies__content__block__link__icon" />
+                                </a>
+                            </div>
+
+                            <span className="case-studies__content__span"></span>
+
+                            <div className="case-studies__content__block">
+                                <p className="case-studies__content__block__description">
+                                    For a national retail chain, we created a social media marketing campaign that increased followers
+                                    by 25% and generated a 20% increase in online sales.
+                                </p>
+
+                                <a href="/" className="case-studies__content__block__link">
+                                    Learn more
+                                    <ArrowSvg className="case-studies__content__block__link__icon" />
+                                </a>
                             </div>
                         </div>
                     </section>
