@@ -8,10 +8,15 @@ import netflix_img from '../../img/netflix-logo.png';
 import zoom_img from '../../img/zoom-logo.png';
 import services_card1 from '../../img/services-card1.png';
 import cta_img from '../../img/cta-img.png';
+import plus from '../../img/plus-icon.png';
+import team_member1 from '../../img/team-member1.png';
+import linkdein_logo from '../../img/linkdein-logo.png';
 import '../../styles/index.scss';
 import { PartnersLogo } from './ui/PartnersLogo';
 import { ReactComponent as ArrowSvg } from '../../img/arrow.svg';
 import { ServiceCard } from './ui/ServiceCard';
+import { WorkingProcessBlock } from './ui/WorkingProcessBlock';
+import { TeamCard } from './ui/TeamCard';
 
 export const HomePage = () => {
     return (
@@ -129,6 +134,46 @@ export const HomePage = () => {
                                     <ArrowSvg className="case-studies__content__block__link__icon" />
                                 </a>
                             </div>
+                        </div>
+                    </section>
+
+                    <section className="working-process">
+                        <div className="working-process__head">
+                            <h2 className="working-process__head__title">Our Working Process</h2>
+                            <p className="working-process__head__description">
+                                Step-by-Step Guide to Achieving Your Business Goals
+                            </p>
+                        </div>
+
+                        <div className="working-process__content">
+                            <WorkingProcessBlock />
+                            <WorkingProcessBlock />
+                            <WorkingProcessBlock />
+                            <WorkingProcessBlock />
+                            <WorkingProcessBlock />
+                            <WorkingProcessBlock />
+                        </div>
+                    </section>
+
+                    <section className="team">
+                        <div className="team__head">
+                            <h2 className="team__head__title">Team</h2>
+                            <p className="team__head__description">
+                                Meet the skilled and experienced team behind our successful digital marketing strategies
+                            </p>
+                        </div>
+
+                        <div className="team__content">
+                            <TeamCard />
+                            <TeamCard />
+                            <TeamCard />
+                            <TeamCard />
+                            <TeamCard />
+                            <TeamCard />
+                        </div>
+
+                        <div className="team__footer">
+                            <button className="team__footer__btn">See all team</button>
                         </div>
                     </section>
                 </div>
