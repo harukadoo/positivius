@@ -25,7 +25,7 @@ export const ServiceCard: React.FC<{ data: IServiceCard }> = ({ data: { title, l
                          "--bg-color": link.backgroundColor, 
                          "--text-hover-color": invertedTextColor } as React.CSSProperties}>
 
-                    <ArrowSvg className="services__content__card__info__link__icon" style={{ stroke: link.arrowColor}}/>
+                    <ArrowSvg className="services__content__card__info__link__icon" style={{ fill: link.arrowColor}}/>
 
                     <span className="services__content__card__info__link__text">Learn more</span>
                 </a>
