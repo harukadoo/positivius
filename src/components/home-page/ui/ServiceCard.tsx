@@ -1,25 +1,37 @@
 import { ReactComponent as ArrowSvg } from '../../../img/arrow.svg';
-import services_card1 from '../../../img/services-card1.png';
+import { IServiceCard } from '../../../types';
 
-export const ServiceCard = () => {
+export const ServiceCard: React.FC<{ data: IServiceCard }> = ({ data: { title, link, img, backgroundColor } }) => {
+     const invertColor = (hex: string) => {
+        const normalizedHex = hex.toUpperCase(); 
+        return normalizedHex === "#191A23" ? "#FFF" : normalizedHex === "#FFF" ? "#191A23" : hex;
+    };
+
+    const invertedTextColor = invertColor(link.textColor);
     return (
-        // <div className="services__content">
-            <div className="services__content__card">
-                <div className="services__content__card__info">
-                    <div className="services__content__card__info__title">
-                        <h3 className="services__content__card__info__title__el">Search engine</h3>
-                        <h3 className="services__content__card__info__title__el">optimization</h3>
-                    </div>
-
-                    <a href="#" className="services__content__card__info__link">
-                        <ArrowSvg className="services__content__card__info__link__icon" />
-
-                        <span className="services__content__card__info__link__text">Learn more</span>
-                    </a>
+        <div className="services__content__card" style={{ backgroundColor }}>
+            <div className="services__content__card__info">
+                <div className="services__content__card__info__title">
+                    {Object.values(title.text).map((line, index) => (
+                        <h3 key={index} className="services__content__card__info__title__el" style={{ backgroundColor: title.backgroundColor }}>
+                            {line}
+                        </h3>
+                    ))}
                 </div>
 
-                <img src={services_card1} alt="img" className="services__content__card__img" />
+                <a href={link.url} 
+                className="services__content__card__info__link" 
+                style={{ "--text-color": link.textColor,
+                         "--bg-color": link.backgroundColor, 
+                         "--text-hover-color": invertedTextColor } as React.CSSProperties}>
+
+                    <ArrowSvg className="services__content__card__info__link__icon" style={{ stroke: link.arrowColor}}/>
+
+                    <span className="services__content__card__info__link__text">Learn more</span>
+                </a>
             </div>
-        // </div>
+
+            <img src={img} alt="img" className="services__content__card__img" />
+         </div>
     )
-}
+};

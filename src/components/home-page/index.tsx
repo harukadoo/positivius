@@ -6,17 +6,17 @@ import hubspot_img from '../../img/hubspot-logo.png';
 import notion_img from '../../img/notion-logo.png';
 import netflix_img from '../../img/netflix-logo.png';
 import zoom_img from '../../img/zoom-logo.png';
-import services_card1 from '../../img/services-card1.png';
 import cta_img from '../../img/cta-img.png';
-import plus from '../../img/plus-icon.png';
-import team_member1 from '../../img/team-member1.png';
-import linkdein_logo from '../../img/linkdein-logo.png';
+// import plus from '../../img/plus-icon.png';
+// import team_member1 from '../../img/team-member1.png';
+// import linkdein_logo from '../../img/linkdein-logo.png';
 import '../../styles/index.scss';
 import { PartnersLogo } from './ui/PartnersLogo';
 import { ReactComponent as ArrowSvg } from '../../img/arrow.svg';
 import { ServiceCard } from './ui/ServiceCard';
 import { WorkingProcessBlock } from './ui/WorkingProcessBlock';
 import { TeamCard } from './ui/TeamCard';
+import { serviceCardData } from '../../data/services';
 
 export const HomePage = () => {
     return (
@@ -63,12 +63,9 @@ export const HomePage = () => {
                         </div>
 
                         <div className="services__content">
-                            <ServiceCard />
-                            <ServiceCard />
-                            <ServiceCard />
-                            <ServiceCard />
-                            <ServiceCard />
-                            <ServiceCard />
+                            {serviceCardData.map((item, index) => (
+                                <ServiceCard key={index} data={item} />
+                            ))}
                         </div>
                     </section>
 
