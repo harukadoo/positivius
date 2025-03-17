@@ -64,18 +64,19 @@
     }
 
     &__button{
-        color: $defaultBlack;
-        background-color: $defaultWhite;
+        color: $defaultWhite;
+        background-color: $defaultDark;
         font-size: 20px;
         padding: 20px 35px;
-        border: 1px solid $defaultBlack;
+        border: 1px solid $defaultDark;
         border-radius: 14px;
         cursor: pointer;
         transition: .4s;
 
         &:hover{
-            background-color: $defaultGreen;
-            border-color: $defaultGreen;
+            background-color: $defaultWhite;
+            border-color: $defaultBlack;
+            color: $defaultBlack;
             transition: .4s;
         }
     }

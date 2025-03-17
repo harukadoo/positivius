@@ -1,11 +1,5 @@
 import {Header} from '../index';
 import hero_img from '../../img/hero-img.png';
-import amazon_img from '../../img/amazon-logo.png';
-import dribbble_img from '../../img/dribbble-logo.png';
-import hubspot_img from '../../img/hubspot-logo.png';
-import notion_img from '../../img/notion-logo.png';
-import netflix_img from '../../img/netflix-logo.png';
-import zoom_img from '../../img/zoom-logo.png';
 import cta_img from '../../img/cta-img.png';
 // import plus from '../../img/plus-icon.png';
 // import team_member1 from '../../img/team-member1.png';
@@ -17,8 +11,13 @@ import { ServiceCard } from './ui/ServiceCard';
 import { WorkingProcessBlock } from './ui/WorkingProcessBlock';
 import { TeamCard } from './ui/TeamCard';
 import { serviceCardData } from '../../data/services';
+import { workingProcessData } from '../../data/workingProcess';
+import { useState } from 'react';
+import { teamData } from '../../data/team';
+import { partners } from '../../data/partners';
 
 export const HomePage = () => {
+    const [activeWorkingProcessIndex, setWorkingProcessIndex] = useState<number | null>(null);
     return (
         <>
             <Header />
@@ -40,17 +39,9 @@ export const HomePage = () => {
                     </section>
 
                     <section className="partners">
-                        <PartnersLogo url={"https://www.amazon.com/"} img={amazon_img} alt={"amazon"} />
-
-                        <PartnersLogo url={"https://dribbble.com/"} img={dribbble_img} alt={"dribbble"} />
-
-                        <PartnersLogo url={"https://www.hubspot.com/"} img={hubspot_img} alt={"hubspot"} />
-
-                        <PartnersLogo url={"https://www.notion.com/"} img={notion_img} alt={"notion"} />
-
-                        <PartnersLogo url={"https://www.netflix.com/"} img={netflix_img} alt={"netflix"} />
-
-                        <PartnersLogo url={"https://www.zoom.com/"} img={zoom_img} alt={"zoom"} />
+                        {partners.map((item, index) => (
+                            <PartnersLogo key={index} data={item} />
+                        ))}
                     </section>
 
                     <section className="services">
@@ -143,12 +134,15 @@ export const HomePage = () => {
                         </div>
 
                         <div className="working-process__content">
-                            <WorkingProcessBlock />
-                            <WorkingProcessBlock />
-                            <WorkingProcessBlock />
-                            <WorkingProcessBlock />
-                            <WorkingProcessBlock />
-                            <WorkingProcessBlock />
+                            {workingProcessData.map((item, index) => (
+                                <WorkingProcessBlock 
+                                key={index} 
+                                data={item} 
+                                index={index}
+                                activeIndex={activeWorkingProcessIndex} 
+                                setActiveIndex={setWorkingProcessIndex} 
+                                />
+                            ))}
                         </div>
                     </section>
 
@@ -161,12 +155,9 @@ export const HomePage = () => {
                         </div>
 
                         <div className="team__content">
-                            <TeamCard />
-                            <TeamCard />
-                            <TeamCard />
-                            <TeamCard />
-                            <TeamCard />
-                            <TeamCard />
+                            {teamData.map((item, index) => (
+                                <TeamCard key={index} data={item} />
+                            ))}
                         </div>
 
                         <div className="team__footer">
