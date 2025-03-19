@@ -28,7 +28,7 @@ body {
     &__container {
         width: 1440px;
         height: max-content;
-        padding: 180px 100px 60px 100px;
+        padding: 175px 100px 60px 100px;
         display: flex;
         flex-direction: column;
         gap: 70px;
@@ -558,6 +558,135 @@ body {
                 color: $defaultDark;
                 background-color: $defaultWhite;
                 transition: .4s;
+            }
+        }
+    }
+}
+
+
+.testimonials{
+    display: flex;
+    flex-direction: column;
+    gap: 80px;
+    margin-top: 70px;
+
+    &__head {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+
+        &__title {
+            font-size: 40px;
+            font-weight: 500;
+            background-color: $defaultGreen;
+            padding: 0px 7px;
+            border-radius: 7px;
+        }
+
+        &__description {
+            width: 473px;
+            font-size: 18px;
+        }
+    }
+
+    &__main{
+        width: 100%;
+        height: 625px;
+        overflow: hidden;
+        background-color: $defaultDark;
+        border-radius: 45px;
+        display: flex;
+        flex-direction: column;
+        gap: 124px;
+        align-items: center;
+        justify-content: center;
+
+        &__content{
+            width: 100%;
+            display: flex;
+            // justify-content: center;
+            align-items: center;
+            gap: 50px;
+
+            &__block{
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+
+                &:first-of-type{
+                    margin-left: 315px;
+                }
+
+                &__comment{
+                    width: 606px;
+                    height: 266px;
+                    background-image: url("../../img/bubble.png");
+                    background-size: cover;
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    display: flex;
+                    flex-direction: column;
+                    align-items: center;
+                    justify-content: center;
+
+                    &__text{
+                        margin-top: -28px;
+                        color: $defaultWhite;
+                        font-size: 18px;
+                        text-align: center;
+                        width: 502px;
+                    }
+                }
+
+                &__author{
+                    margin-left: 85px;
+                    &__name{
+                        font-size: 20px;
+                        color: $defaultGreen;
+                    }
+
+                    &__job{
+                        color: $defaultWhite;
+                        font-size: 18px;
+                    }
+                }
+            }
+        }
+
+        &__navigation{
+            width: 606px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            &__arrowleft{
+                background: none;
+                outline: none;
+                border: none;
+                transform: rotate(180deg);
+                cursor: pointer;
+
+                &__icon{
+                    width: 22px;
+                    fill: $defaultWhite;
+                }
+            }
+
+            &__stars{
+                display: flex;
+                gap: 20px;
+            }
+
+            &__arrowright{
+                background: none;
+                outline: none;
+                border: none;
+                cursor: pointer;
+                
+                &__icon{
+                    width: 22px;
+                    fill: $defaultWhite;
+                }
             }
         }
     }

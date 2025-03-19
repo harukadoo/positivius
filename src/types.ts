@@ -34,3 +34,11 @@ export interface ITeam {
     linkdein: string;
     img: string;
 }
+
+export interface ITestimonials {
+    text: string;
+    author: {
+        name: string;
+        job: string;
+    }
+}

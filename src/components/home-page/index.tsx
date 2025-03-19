@@ -1,23 +1,40 @@
 import {Header} from '../index';
 import hero_img from '../../img/hero-img.png';
 import cta_img from '../../img/cta-img.png';
-// import plus from '../../img/plus-icon.png';
-// import team_member1 from '../../img/team-member1.png';
-// import linkdein_logo from '../../img/linkdein-logo.png';
 import '../../styles/index.scss';
 import { PartnersLogo } from './ui/PartnersLogo';
 import { ReactComponent as ArrowSvg } from '../../img/arrow.svg';
+import { ReactComponent as StarSvg } from '../../img/vector.svg';
 import { ServiceCard } from './ui/ServiceCard';
 import { WorkingProcessBlock } from './ui/WorkingProcessBlock';
 import { TeamCard } from './ui/TeamCard';
 import { serviceCardData } from '../../data/services';
 import { workingProcessData } from '../../data/workingProcess';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { teamData } from '../../data/team';
 import { partners } from '../../data/partners';
+import { testimonialsData } from '../../data/testimonials';
+import { Testimonial } from './ui/Testimonial';
 
 export const HomePage = () => {
     const [activeWorkingProcessIndex, setWorkingProcessIndex] = useState<number | null>(null);
+    const [activeTestimonialIndex, setActiveTestimonialIndex] = useState(0);
+
+    useEffect(() => {
+        setActiveTestimonialIndex(2);
+    }, []);
+
+    const prevTestimonial = () => {
+        setActiveTestimonialIndex((prev) =>
+            prev === 0 ? testimonialsData.length - 1 : prev - 1
+        );
+    };
+
+    const nextTestimonial = () => {
+        setActiveTestimonialIndex((prev) =>
+            prev === testimonialsData.length - 1 ? 0 : prev + 1
+        );
+    };
     return (
         <>
             <Header />
@@ -136,11 +153,11 @@ export const HomePage = () => {
                         <div className="working-process__content">
                             {workingProcessData.map((item, index) => (
                                 <WorkingProcessBlock 
-                                key={index} 
-                                data={item} 
-                                index={index}
-                                activeIndex={activeWorkingProcessIndex} 
-                                setActiveIndex={setWorkingProcessIndex} 
+                                    key={index} 
+                                    data={item} 
+                                    index={index}
+                                    activeIndex={activeWorkingProcessIndex} 
+                                    setActiveIndex={setWorkingProcessIndex} 
                                 />
                             ))}
                         </div>
@@ -162,6 +179,42 @@ export const HomePage = () => {
 
                         <div className="team__footer">
                             <button className="team__footer__btn">See all team</button>
+                        </div>
+                    </section>
+
+                    <section className="testimonials">
+                        <div className="testimonials__head">
+                            <h2 className="testimonials__head__title">Testimonials</h2>
+                            <p className="testimonials__head__description">
+                                Hear from Our Satisfied Clients: Read Our Testimonials to Learn More about Our Digital Marketing Services
+                            </p>
+                        </div>
+
+                        <div className="testimonials__main">
+                            <div className="testimonials__main__content" style={{
+                                transform: `translateX(-${activeTestimonialIndex * 52}%)`,
+                                transition: "transform 0.5s ease-in-out",
+                            }}>
+                                {testimonialsData.map((item, index) => (
+                                    <Testimonial key={index} data={item} index={index} activeTestimonialIndex={activeTestimonialIndex}/>
+                                ))}
+                            </div>
+
+                            <div className="testimonials__main__navigation">
+                                <button className="testimonials__main__navigation__arrowleft" onClick={prevTestimonial}>
+                                    <ArrowSvg className="testimonials__main__navigation__arrowleft__icon"/>
+                                </button>
+
+                                <div className="testimonials__main__navigation__stars">
+                                    {testimonialsData.map((_, index) => (
+                                        <StarSvg key={index} style={{ opacity: index === activeTestimonialIndex ? 1 : 0.3 }}/>
+                                    ))}
+                                </div>
+
+                                <button className="testimonials__main__navigation__arrowright" onClick={nextTestimonial}>
+                                    <ArrowSvg className="testimonials__main__navigation__arrowright__icon"/>
+                                </button>
+                            </div>
                         </div>
                     </section>
                 </div>
